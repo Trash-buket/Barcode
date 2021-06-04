@@ -1,45 +1,70 @@
-echo "Please scan the barcode."
-
-read barcode
-
-#touch ~/barcodes/$barcode || echo "Please make a barcode directory [EXIT CODE 1]" && exit
-
-echo "
-What is the order number?"
-
-read order
-
-echo "
-What station do you at?"
-
-read station
-
-echo "
-Processing data.." && clear
+s1=$(cat ~/stations/1)
+s2=$(cat ~/stations/2)
+s3=$(cat ~/stations/3)
+s4=$(cat ~/stations/4)
+s5=$(cat ~/stations/5)
+s6=$(cat ~/stations/6)
 
 
+time=$(date '+%m-%d-%Y, %H:%M:%S')
+echo "Please scan the Barcode"
 
-echo " 
-is this data correct?"
+read Barcode
 
-echo "    The bar code is $barcode, 
-     The order number is $order, 
-     The station number is $station"
+echo "What is the order number?"
 
-read response
+read ordernum
+
+echo "What your station number?"
+
+read statnumb
+
+echo "Is this data correct?
+     The bar code is $Barcode,
+     The order number is $ordernum
+     The station number is $statnumb"
+
+     read response
+
+if [[ $statnumb = 1 ]]
+then
+	if [[ $response = yes ]]
+	then
+		echo "$Barcode, '$ordernum', $s1, $time, $statnumb" > ~/barcodes/$Barcode && echo "Barcode saved" && clear
+	fi
+elif [[ $statnumb = 2 ]]
+then	
+	if [[ $response = yes ]]
+	then
+		echo "$Barcode, '$ordernum', $s2, $time, $statnumb" > ~/barcodes/$Barcode && echo "Barcode saved" && clear
+	fi
+elif [[ $statnumb = 3 ]]
+then	
+	if [[ $response = yes ]]
+	then
+		echo "$Barcode, '$ordernum', $s3, $time, $statnumb" > ~/barcodes/$Barcode && echo "Barcode saved" && clear
+	fi
+elif [[ $statnumb = 4 ]]
+then	
+	if [[ $response = yes ]]
+	then
+		echo "$Barcode, '$ordernum', $s4, $time, $statnumb" > ~/barcodes/$Barcode && echo "Barcode saved" && clear
+	fi
+elif [[ $statnumb = 5 ]]
+then	
+	if [[ $response = yes ]]
+	then
+		echo "$Barcode, '$ordernum', $s5, $time, $statnumb" > ~/barcodes/$Barcode && echo "Barcode saved" && clear
+	fi
+elif [[ $statnumb = 6 ]]
+then	
+	if [[ $response = yes ]]
+	then
+		echo "$Barcode, '$ordernum', $s6, $time, $statnumb" > ~/barcodes/$Barcode && echo "Barcode saved" && clear
+	fi
 
 
-
-if [[ $response = yes ]]
-
-then echo "$barcode, $order, $station", date '+%m-%d-%Y, %H:%M:%S' > ~/barcodes/$barcode.csv
-
-
-
-elif [[ $response = no ]]
-
-then clear && exec ~/projects/scan.sh
-
-
+else echo "ERROR CODE 2 : invalid station number"
 
 fi
+
