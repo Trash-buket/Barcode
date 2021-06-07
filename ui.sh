@@ -37,7 +37,15 @@ then
 
 elif [[ $ans = 5 ]]
 then
-read -p '> ' adminpass && echo "
+	echo "what is the password?"
+
+	read -p '> ' adminpassword 
+
+	if [[ $adminpassword = $adminpass ]]
+
+	then
+	
+		echo "
 press 1 to run automount 
 
 press 2 to shutdown 
@@ -46,33 +54,54 @@ press 3 to add a password
 
 press 4 to run first time set up"
 
-read -p '> ' adminans
-     if [[ $adminans = 1 ]]
-     then
-	     clear && exec ~/automount
+               read -p '> ' adminans
+               
+	       if [[ $adminans = 1 ]]
      
-     elif [[ $adminans = 2 ]]
-     then
-	     delay 10 && shutdown now
-     
-     elif [[ $adminans = 3 ]]
-     then
-	     echo "what would you like to set the password as?"
+	       then
 	     
-	     read -p '> 'pass && echo "The password is set"
-
-	     echo $pass > ~/extra/adminpass
+		       clear && exec ~/automount
      
-     elif [[ $adminans = 4 ]]
-     then
-	     chmod +x ~/Barcode
-	     mv ~/Barcode/* ~
-	     rm -rf ~/Barcode
-	     mkdir extra
-	     mkdir barcodes
-	     mkdir stations
+     
+	       elif [[ $adminans = 2 ]]
+     
+	       then
+	     
+		       delay 10 && shutdown now
+     
+     
+	       elif [[ $adminans = 3 ]]
+     
+	       then
+	     
+		       echo "what would you like to set the password as?"
+	     	     
+		       read -p '> 'pass && echo "The password is set"
 
+		       echo $pass > ~/extra/adminpass
+     
+     
+	       elif [[ $adminans = 4 ]]
+     
+	       then
+	     
+		       chmod +x ~/Barcode
+	     
+		       mv ~/Barcode/* ~
+	     
+		       rm -rf ~/Barcode
+	     
+		       mkdir ~/extra
+	     
+		       mkdir ~/barcodes
+	 
+		       mkdir ~/stations
+     
+	       fi
+       else 
+	       echo "incorrect password" && exit
 
+fi
      
 fi
 
