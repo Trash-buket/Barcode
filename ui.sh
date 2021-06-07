@@ -76,7 +76,7 @@ Enter back to go back"
 	     	     
 		       read -p '> ' pass
 
-		       echo $pass > ~/extra/adminpass && echo "The password is set" && sleep 3 && exec ~/.ui.sh
+		       echo $pass > ~/extra/adminpass && echo "The password is set" && sleep 3 && exec ~/ui.sh
      
      
 	       elif [[ $adminans = 4 ]]

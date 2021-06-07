@@ -7,24 +7,25 @@ s6=$(cat ~/stations/6)
 
 
 time=$(date '+%m-%d-%Y, %H:%M:%S')
+
 echo "Please scan the Barcode"
 
-read Barcode
+read -p '> ' Barcode
 
 echo "What is the order number?"
 
-read ordernum
+read -p '> ' ordernum
 
 echo "What your station number?"
 
-read statnumb
+read -p '> ' statnumb
 
 echo "Is this data correct?
      The bar code is $Barcode,
      The order number is $ordernum
      The station number is $statnumb"
 
-     read -r '> ' response
+     read -p '> ' response
 
 if [[ $statnumb = 1 ]]
 then
