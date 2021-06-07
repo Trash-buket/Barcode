@@ -33,13 +33,11 @@ then
 
 elif [[ $ans = 2 ]]
 then
-	
+	echo "hi"
 
 elif [[ $ans = 5 ]]
-
-read -p '> ' adminpass
 then
-	echo "
+read -p '> ' adminpass && echo "
 press 1 to run automount 
 
 press 2 to shutdown 
