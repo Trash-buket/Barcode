@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # run with watch
-adminpass=$(cat ~/extra/password)
+adminpass=$(cat ~/extra/adminpass)
 
 
 clear && echo "
@@ -17,11 +17,7 @@ Press 1 to scan a product
 
 Press 2 to register a scanner
 
-Press 3 to run first time setup
-
-Press 4 for verbose mode (for debug purposes)
-
-Press 5 to access admin options
+Press 3 to access admin options
 
 If this is the first time running this then go to admin options and press 4"
 
@@ -33,7 +29,7 @@ then
 
 elif [[ $ans = 2 ]]
 then
-	echo "hi"
+	exec ~/register.sh
 
 elif [[ $ans = 5 ]]
 then
@@ -67,7 +63,7 @@ press 4 to run first time set up"
      
 	       then
 	     
-		       delay 10 && shutdown now
+		       sleep 10 && shutdown now
      
      
 	       elif [[ $adminans = 3 ]]
@@ -76,9 +72,9 @@ press 4 to run first time set up"
 	     
 		       echo "what would you like to set the password as?"
 	     	     
-		       read -p '> 'pass && echo "The password is set"
+		       read -p '> ' pass
 
-		       echo $pass > ~/extra/adminpass
+		       echo $pass > ~/extra/adminpass && echo "The password is set"
      
      
 	       elif [[ $adminans = 4 ]]
@@ -87,7 +83,7 @@ press 4 to run first time set up"
 	     
 		       chmod +x ~/Barcode
 	     
-		       mv ~/Barcode/* ~
+		       mv ~/Barcode/* 
 	     
 		       rm -rf ~/Barcode
 	     
@@ -99,7 +95,7 @@ press 4 to run first time set up"
      
 	       fi
        else 
-	       echo "incorrect password" && exit
+	       echo "incorrect password" && sleep 3 && exec ~/ui.sh
 
 fi
      
