@@ -31,7 +31,7 @@ elif [[ $ans = 2 ]]
 then
 	exec ~/register.sh
 
-elif [[ $ans = 5 ]]
+elif [[ $ans = 3 ]]
 then
 	echo "what is the password?"
 
@@ -48,7 +48,9 @@ press 2 to shutdown
 
 press 3 to add a password 
 
-press 4 to run first time set up"
+press 4 to run first time set up
+
+Enter back to go back"
 
                read -p '> ' adminans
                
@@ -74,7 +76,7 @@ press 4 to run first time set up"
 	     	     
 		       read -p '> ' pass
 
-		       echo $pass > ~/extra/adminpass && echo "The password is set"
+		       echo $pass > ~/extra/adminpass && echo "The password is set" && sleep 3 && exec ~/.ui.sh
      
      
 	       elif [[ $adminans = 4 ]]
@@ -92,12 +94,19 @@ press 4 to run first time set up"
 		       mkdir ~/barcodes
 	 
 		       mkdir ~/stations
+
+	       elif [[ $adminans = back ]]
+	       then
+		       exec ~/ui.sh
      
 	       fi
        else 
 	       echo "incorrect password" && sleep 3 && exec ~/ui.sh
 
 fi
-     
+else
+	echo "please input a valid number"
+	
+	sleep 3 && exec ~/ui.sh
 fi
 
