@@ -85,7 +85,7 @@ Enter back to go back"
 	     
 		       chmod +x ~/Barcode
 	     
-		       mv ~/Barcode/* 
+		       mv ~/Barcode/* ~ 
 	     
 		       rm -rf ~/Barcode
 	     
