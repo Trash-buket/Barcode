@@ -1,8 +1,14 @@
 # Barcode
 Barcode reading scripts
 
-register.sh well.. registers a scanner to a station (more specifically a 'PCPlay Barcode' barcode scanner)
+register.sh registers a scanner to a station (more specifically a 'PCPlay Barcode' barcode scanner)
 
-scan.sh is for when you have 1 or 2 scanners
+scan.sh is for scanning a barcode
 
-scan2.sh is for when you have multiple scanners corresponding to each station
+ui.sh is a ui for people that dont know how to use linux
+
+frst time set up is covered by ui.sh, just go to admin options and enter the key to set the account up 
+
+(disclaimer: setup removes all folders that aren't necessary for runnning)
+
+The password can be changed without the ui by editing it in ~/extra
